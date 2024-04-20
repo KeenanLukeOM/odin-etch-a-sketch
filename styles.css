@@ -7,6 +7,9 @@
     width: 1000px;
     height: 1000px;
 }
+#createGridButton {
+    display: flex;
+}
 
 .row {
     display: flex;
