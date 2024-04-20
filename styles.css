@@ -1,0 +1,24 @@
+#squaresContainer {
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-content: stretch;
+    width: 1000px;
+    height: 1000px;
+}
+
+.row {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.box {
+    background-color: green;
+    flex: 1 1 auto;
+}
+
+.boxOn {
+    background-color: yellow;
+    flex: 1 1 auto;
+}
