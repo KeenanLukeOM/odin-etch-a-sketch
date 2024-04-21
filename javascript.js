@@ -9,6 +9,9 @@ let allRows
 // Executes gridPopup function when create grid button clicked
 document.querySelector("#createGridButton").onclick = gridPopup
 
+// Executes clearCanvas function when wipe the canvas button clicked
+document.querySelector("#wipeCanvasButton").onclick = clearCanvas
+
 function generateSquares(gridNumber) {
     // Create number of rows equal to user provided grid number
     for (let i = 0; i < gridNumber; i++) {
@@ -56,5 +59,10 @@ function gridPopup() {
     
 }
 
-
+function clearCanvas() {
+    // Selects all .boxOn classes back to default
+    allSquares = document.querySelectorAll(".boxOn")
+    allSquares.forEach((box) => {
+        box.className = "box"
+})};
 
