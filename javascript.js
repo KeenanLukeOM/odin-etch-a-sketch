@@ -46,6 +46,7 @@ function generateSquares(gridNumber) {
         // Checks for mode, and sets associated opacity
         if (box.target.className = "boxOn" && mode === "black") {
             box.target.style.opacity = opacityAddition(box.target.style.opacity)
+            box.target.style.backgroundColor = `black`
             console.log(box.target.style.opacity)} 
         else if (box.target.className = "boxOn" && mode === "rainbow") {
             box.target.style.opacity = opacityAddition(box.target.style.opacity)
@@ -103,6 +104,7 @@ function clearCanvas() {
     allSquares.forEach((box) => {
         box.className = "box"
         box.style.backgroundColor = ""
+        box.style.opacity = 0.1
 })};
 
 // Generates a random color, between 1-255
