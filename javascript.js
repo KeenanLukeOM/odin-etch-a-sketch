@@ -53,6 +53,11 @@ function generateSquares(gridNumber) {
             box.target.style.backgroundColor = `${randomColor()}`
             console.log(box.target.style.backgroundColor)
         }
+        else if (box.target.className = "boxOn" && mode === "erase") {
+            box.target.style.opacity = 0
+            box.target.style.backgroundColor = ``
+            console.log(box.target.style.backgroundColor)
+        }
         box.target.className = "boxOn"
 }
 )})
@@ -65,10 +70,14 @@ function setMode() {
             document.querySelector("#colorModeButton").textContent = "Color mode: Rainbow"
             console.log(mode)
         } else if (mode === "rainbow") {
+            mode = "erase"
+            document.querySelector("#colorModeButton").textContent = "Color mode: Erase"
+            console.log(mode)
+        } else if (mode === "erase") {
             mode = "black"
             document.querySelector("#colorModeButton").textContent = "Color mode: Black"
             console.log(mode)
-        }  
+        }
     }
 }
 
