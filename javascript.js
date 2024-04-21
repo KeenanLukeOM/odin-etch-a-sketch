@@ -6,11 +6,18 @@ const squaresContainer = document.querySelector("#squaresContainer");
 let allSquares
 let allRows
 
+
+let mode = "black"
+
 // Executes gridPopup function when create grid button clicked
 document.querySelector("#createGridButton").onclick = gridPopup
 
 // Executes clearCanvas function when wipe the canvas button clicked
 document.querySelector("#wipeCanvasButton").onclick = clearCanvas
+
+// Changes  function when wipe the canvas button clicked
+document.querySelector("#colorModeButton").onclick = setMode
+
 
 function generateSquares(gridNumber) {
     // Create number of rows equal to user provided grid number
@@ -35,10 +42,41 @@ function generateSquares(gridNumber) {
     // Selects all squares, executes code when mouse enters div
     allSquares = document.querySelectorAll(".box")
     allSquares.forEach((box) => {box.addEventListener("mouseenter", (box) => {
+
+        // Checks for mode, and sets associated opacity
+        if (box.target.className = "boxOn" && mode === "black") {
+            box.target.style.opacity = opacityAddition(box.target.style.opacity)
+            console.log(box.target.style.opacity)} 
+        else if (box.target.className = "boxOn" && mode === "rainbow") {
+            box.target.style.opacity = opacityAddition(box.target.style.opacity)
+            box.target.style.backgroundColor = `${randomColor()}`
+            console.log(box.target.style.backgroundColor)
+        }
         box.target.className = "boxOn"
-        console.log(box)
 }
 )})
+}
+
+function setMode() {
+    {
+        if (mode === "black"){
+            mode = "rainbow"
+            document.querySelector("#colorModeButton").textContent = "Color mode: Rainbow"
+            console.log(mode)
+        } else if (mode === "rainbow") {
+            mode = "black"
+            document.querySelector("#colorModeButton").textContent = "Color mode: Black"
+            console.log(mode)
+        }  
+    }
+}
+
+// Adds 10% to opacity and returns new value
+function opacityAddition(currentOpacity) {
+    if (currentOpacity <= 1 && currentOpacity >= 0) {
+        let newOpacity = Number(currentOpacity) + 0.1
+        return newOpacity
+    }
 }
 
 function gridPopup() {
@@ -64,5 +102,11 @@ function clearCanvas() {
     allSquares = document.querySelectorAll(".boxOn")
     allSquares.forEach((box) => {
         box.className = "box"
+        box.style.backgroundColor = ""
 })};
 
+// Generates a random color, between 1-255
+function randomColor() {
+    let ans = `rgb(${Math.floor(Math.random() * 255) + 1}, ${Math.floor(Math.random() * 255) + 1}, ${Math.floor(Math.random() * 255) + 1})`
+    return ans
+}
